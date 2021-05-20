@@ -1,3 +1,14 @@
+var forecast = document.querySelector(".five-day-forecast");
+var cityArray;
+
+if (localStorage.getItem("searchHistory")) {
+    cityArray = JSON.parse(localStorage.getItem("searchHistory"));
+    writeSearchHistory(cityArray);
+} 
+else {
+    cityArray = [];
+};
+
 const weather = {
     "apiKey": "6ba6a286a7d20b197ca3b0261cde6813",
     fetchWeather: function(city) {
