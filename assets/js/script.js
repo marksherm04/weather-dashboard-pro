@@ -9,20 +9,38 @@ const weather = {
         .then((response) => response.json())
         .then((data) => this.displayWeather(data));
     },
+    // lines on weather lines in card functions and input
     displayWeather: function(data) {
         const {name} = data;
         const {icon, description} = data.weather[0];
         const {temp, humidity} = data.main;
         const {speed} = data.wind;
         const {feels_like} = data.main;
-        console.log(name, icon, description, temp, humidity, speed, feels_like);
-        document.querySelector(".city").innerText = "Weather in " + name;
+        document.querySelector(".city").innerText = name + " Weather";
         document.querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon + ".png";
         document.querySelector(".description").innerText = description;
         document.querySelector(".temp").innerText = temp + "°C";
         document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
         document.querySelector(".wind").innerText = "Wind Speed: " +speed + "km/h";
         document.querySelector(".feels_like").innerText = "Feels Like: " + feels_like + "°C";
-        
+        // hides weather on page load
+        document.querySelector(".weather").classList.remove("loading");
+        // loads a background picture of city that you search
+        document.body.style.backgroundImage= "url('https://source.unsplash.com/1600x900/?" + name + "')"
+    },
+    search: function() {
+        this.fetchWeather(document.querySelector(".search-bar").value);
     }
 };
+// listens for click of mouse to search
+document.querySelector(".search button").addEventListener("click", function() {
+weather.search();
+});
+// ability to hit enter as well to search
+document.querySelector(".search-bar").addEventListener("keyup", function(event) {
+    if (event.key == "Enter") {
+        weather.search();
+    }
+});
+
+weather.fetchWeather("Indianapolis")

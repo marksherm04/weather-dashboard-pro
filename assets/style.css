@@ -5,10 +5,16 @@ body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
     background: whitesmoke;
-    background-image: url('https://source.unsplash.com/1600x900/?nature,water');
+    background-image: url('https://source.unsplash.com/1600x900/?landscapes');
     background-size: 100%;
     font-size: 120%;
     
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
 }
 
 .header {
@@ -18,6 +24,7 @@ body {
  opacity: .8;
  font-weight:bolder;
  font-size: 32px;
+ margin-bottom: 5%;
 }
 
 .card {
@@ -68,6 +75,19 @@ button :hover{
     background:rgb(55, 51, 51);
 }
 
+.btn-group-button{
+    border: none;
+    outline: none;
+    padding: 0.4em 1em;
+    border-radius: 24px;
+    background: black;
+    color:whitesmoke;
+    font-style: inherit;
+    font-size: 110%;
+    width: calc(100% - 45px);
+  }
+
+
 h1.temp {
     margin: 0;
     margin-bottom: 0.5em;
@@ -81,4 +101,19 @@ h1.temp {
 .description { 
     text-transform: capitalize;
     margin-left: 8px;
+}
+/* hides weather on page load until city input */
+.weather-loading {
+    visibility: hidden;
+    max-height: 20px;
+    position: relative;
+}
+
+.weather.loading::after {
+    visibility: visible;
+    content: "Loading...";
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 20px;
 }
