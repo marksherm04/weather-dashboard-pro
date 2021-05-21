@@ -1,5 +1,9 @@
-var forecast = document.querySelector(".five-day-forecast");
-var cityArray;
+var forecast = document.getElementById(".five-day-forecast");
+var cityArray = [];
+var todayDate = moment();
+var displayTodayDate = document.getElementById("today-date")
+
+displayTodayDate.innerHTML = todayDate.format("LL");
 
 if (localStorage.getItem("searchHistory")) {
     cityArray = JSON.parse(localStorage.getItem("searchHistory"));
@@ -20,7 +24,7 @@ const weather = {
         .then((response) => response.json())
         .then((data) => this.displayWeather(data));
     },
-    // lines on weather lines in card functions and input
+    // data weather lines in card functions and input
     displayWeather: function(data) {
         const {name} = data;
         const {icon, description} = data.weather[0];
@@ -32,8 +36,8 @@ const weather = {
         document.querySelector(".description").innerText = description;
         document.querySelector(".temp").innerText = temp + "°C";
         document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
-        document.querySelector(".wind").innerText = "Wind Speed: " +speed + "km/h";
-        document.querySelector(".feels_like").innerText = "Feels Like: " + feels_like + "°C";
+        document.querySelector(".wind").innerText = "Wind Speed: " + speed + "km/h";
+        document.querySelector(".feels-like").innerText = "Feels Like: " + feels_like + "°C";
         // hides weather on page load
         document.querySelector(".weather").classList.remove("loading");
         // loads a background picture of city that you search
@@ -43,6 +47,12 @@ const weather = {
         this.fetchWeather(document.querySelector(".search-bar").value);
     }
 };
+
+var forecast = {
+    
+}
+
+
 // listens for click of mouse to search
 document.querySelector(".search button").addEventListener("click", function() {
 weather.search();
@@ -53,5 +63,7 @@ document.querySelector(".search-bar").addEventListener("keyup", function(event) 
         weather.search();
     }
 });
+
+
 
 weather.fetchWeather("Indianapolis")

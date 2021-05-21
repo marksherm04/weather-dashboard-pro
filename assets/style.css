@@ -56,7 +56,7 @@ button {
     background: black;
     color:whitesmoke;
     cursor: pointer;
-    transition: 0.2s ease-in-out;
+    transition: 0.3s ease-in-out;
 }
 
 input.search-bar {
@@ -75,7 +75,7 @@ button :hover{
     background:rgb(55, 51, 51);
 }
 
-.btn-group-button{
+.btn-group button{
     border: none;
     outline: none;
     padding: 0.4em 1em;
@@ -83,8 +83,11 @@ button :hover{
     background: black;
     color:whitesmoke;
     font-style: inherit;
-    font-size: 110%;
     width: calc(100% - 45px);
+  }
+
+  .btn-group :hover{
+    background:rgb(55, 51, 51); 
   }
 
 

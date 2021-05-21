@@ -13,12 +13,13 @@
 <body>
         <div class="header">
        <h1><i class="fas fa-cloud-sun"></i> WEATHER DASHBOARD PRO</h1>
+       <h2 id="today-date"></h2>
         </div>
     
     <main>
     <div class="card">
+        <h1>Previous City Search: </h1>
         <div class="btn-group" id="priorSearch">
-            <h1>Previous Cities: </h1>
             <button>City 1</button><br>
             <button>City 2</button><br>
             <button>City 3</button><br>
@@ -36,7 +37,7 @@
             </button>
         </div>
         <div class="weather loading">
-            <h1 class="city">Denver Weather</h1>
+            <h1 class="city">Weather</h1>
             <h2 class="temp">51°</h2>
             <div class="flex">
             <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
@@ -44,16 +45,14 @@
             </div>
             <div class="humidity">humidity</div>
             <div class="wind">7 mph</div>
-            <div class="feels_like">Feels Like: 55°</span></div>
+            <div class="feels-like">Feels Like: 55°</span></div>
         </div>
     </div>
 
     <div class="card">
-        <div class="btn-group">
-            <h1>5 Day Forecast: </h1>
-           <div class="five-day-forecast">
-
-           </div>
+        
+        <h1>5 Day Forecast: </h1>
+        <div id="five-day-forecast">
 
         </div>
     </div>
@@ -63,6 +62,7 @@
     </main>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="assets/js/script.js" defer></script>
 </body>
 </html>
