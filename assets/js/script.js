@@ -13,12 +13,12 @@ else {
     cityArray = [];
 };
 
-const weather = {
+const todayWeather = {
     "apiKey": "6ba6a286a7d20b197ca3b0261cde6813",
     fetchWeather: function(city) {
         fetch("https://api.openweathermap.org/data/2.5/weather?q="
          + city 
-         + "&units=metric&appid=" 
+         + "&units=imperial&appid=" 
          + this.apiKey
         )
         .then((response) => response.json())
@@ -34,7 +34,7 @@ const weather = {
         document.querySelector(".city").innerText = name + " Weather";
         document.querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon + ".png";
         document.querySelector(".description").innerText = description;
-        document.querySelector(".temp").innerText = temp + "°C";
+        document.querySelector(".temp").innerText = temp + "°F";
         document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
         document.querySelector(".wind").innerText = "Wind Speed: " + speed + "km/h";
         document.querySelector(".feels-like").innerText = "Feels Like: " + feels_like + "°C";
@@ -45,25 +45,39 @@ const weather = {
     },
     search: function() {
         this.fetchWeather(document.querySelector(".search-bar").value);
+        this.fetchForecast(document.querySelector(".search-bar").value);
+    },
+    fetchForecast: function(city) {
+        fetch("https://api.openweathermap.org/data/2.5/forecast?q="
+        + city
+        + "&count=5&appid="
+        + this.apiKey
+        )
+        .then((response) => response.json())
+        .then((data) => this.displayForecast(data));
+    },
+    displayForecast: function(data) {
+        const {name} = data;
+        const {icon, weather, main, wind} = data.list[0];
+        
+        // city1
+        // city2
     }
 };
 
-var forecast = {
-    
-}
 
 
 // listens for click of mouse to search
 document.querySelector(".search button").addEventListener("click", function() {
-weather.search();
+todayWeather.search();
 });
 // ability to hit enter as well to search
 document.querySelector(".search-bar").addEventListener("keyup", function(event) {
     if (event.key == "Enter") {
-        weather.search();
+        todayWeather.search();
     }
 });
 
 
 
-weather.fetchWeather("Indianapolis")
+todayWeather.fetchWeather("Indianapolis")
