@@ -1,7 +1,7 @@
-var forecast = document.getElementById(".five-day-forecast");
-var cityArray = [];
 var todayDate = moment();
 var displayTodayDate = document.getElementById("today-date")
+var forecast = document.getElementById("forecast");
+var cityArray = [];
 
 displayTodayDate.innerHTML = todayDate.format("LL");
 
@@ -50,7 +50,7 @@ const todayWeather = {
     fetchForecast: function(city) {
         fetch("https://api.openweathermap.org/data/2.5/forecast?q="
         + city
-        + "&count=5&appid="
+        + "&units=imperial&appid="
         + this.apiKey
         )
         .then((response) => response.json())
@@ -59,9 +59,10 @@ const todayWeather = {
     displayForecast: function(data) {
         const {name} = data;
         const {icon, weather, main, wind} = data.list[0];
+        for (var i = 0; i > todayWeather; i++) {}
         
-        // city1
-        // city2
+        // day1
+        // day2
     }
 };
 
@@ -78,6 +79,4 @@ document.querySelector(".search-bar").addEventListener("keyup", function(event) 
     }
 });
 
-
-
-todayWeather.fetchWeather("Indianapolis")
+todayWeather.fetchWeather("Indianapolis");
