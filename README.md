@@ -17,6 +17,9 @@ Click [here](https://marksherm04.github.io/weather-dashboard-pro/) to go to Weat
 
 ## Screenshot
 
+<img width="2482" alt="Screen Shot 2021-05-23 at 10 11 10 PM" src="https://user-images.githubusercontent.com/81338255/119287138-d8a49f80-bc13-11eb-93a0-04ac0b1b730c.png">
+
+
 ## Features
 - By typing in your current city, you will be able to see all of the weather information.
 - Background image changes as you update the city you are searching.  This finds images correlated with the city.
