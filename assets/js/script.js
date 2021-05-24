@@ -50,7 +50,7 @@ const todayWeather = {
     fetchForecast: function(city) {
         fetch("https://api.openweathermap.org/data/2.5/forecast?q="
         + city
-        + "&units=imperial&appid="
+        + "&exclude=current,hourly,minutely,alerts&units=imperial&appid="
         + this.apiKey
         )
         .then((response) => response.json())
@@ -59,7 +59,7 @@ const todayWeather = {
     displayForecast: function(data) {
         const {name} = data;
         const {icon, weather, main, wind} = data.list[0];
-        for (var i = 0; i > todayWeather; i++) {}
+        for (var i = 0; i < todayWeather.length; i++) {}
         
         // day1
         // day2
